@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Helper — Smart Restaurant Management</title>
+  <meta name="description" content="Kitchen Helper helps restaurants reduce food waste, manage inventory, schedule staff, and run a smoother operation from kitchen to front of house." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0',
+              300: '#6ee7b7', 400: '#34d399', 500: '#10b981',
+              600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-hero {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 40%, #047857 100%);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .feature-icon {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    }
+    .pricing-popular {
+      background: linear-gradient(135deg, #059669, #047857);
+    }
+    .nav-scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body class="font-sans text-stone-800 bg-white">
+
+  <!-- ── Navbar ── -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 bg-emerald-500 rounded-xl flex items-center justify-center shadow-md">
+          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+        </div>
+        <span class="font-bold text-xl text-white nav-text-dark" style="text-shadow: 0 1px 3px rgba(0,0,0,0.3)">Kitchen Helper</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm font-medium text-white/80 nav-text-dark hover:text-white transition-colors">Features</a>
+        <a href="#how-it-works" class="text-sm font-medium text-white/80 nav-text-dark hover:text-white transition-colors">How It Works</a>
+        <a href="#pricing" class="text-sm font-medium text-white/80 nav-text-dark hover:text-white transition-colors">Pricing</a>
+      </div>
+      <a href="#pricing" class="bg-white text-emerald-700 font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-emerald-50 transition-colors shadow-md">
+        Get Started
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="gradient-hero min-h-screen flex items-center relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <svg width="100%" height="100%"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)"/></svg>
+    </div>
+    <!-- Decorative circles -->
+    <div class="absolute top-20 right-10 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-64 h-64 bg-emerald-300/10 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-32 text-center">
+      <div class="inline-flex items-center gap-2 bg-emerald-400/20 border border-emerald-400/30 text-emerald-200 text-sm font-medium px-4 py-2 rounded-full mb-8">
+        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+        Built for modern restaurants
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+        Run a smarter<br />
+        <span class="text-emerald-300">restaurant</span>
+      </h1>
+      <p class="text-lg md:text-xl text-emerald-100/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Kitchen Helper unifies your kitchen and front of house — cutting food waste, streamlining inventory, managing staff, and keeping every service running smoothly.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#pricing" class="bg-white text-emerald-700 font-bold px-8 py-4 rounded-2xl text-base hover:bg-emerald-50 transition-all shadow-xl hover:shadow-2xl">
+          Start Free Trial
+        </a>
+        <a href="#features" class="flex items-center gap-2 text-white font-medium px-6 py-4 rounded-2xl border border-white/20 hover:bg-white/10 transition-all">
+          See all features
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="mt-20 grid grid-cols-3 md:grid-cols-3 gap-6 max-w-lg mx-auto">
+        <div class="text-center">
+          <div class="text-3xl font-extrabold text-white">30%</div>
+          <div class="text-xs text-emerald-200/70 mt-1 uppercase tracking-wide">Less food waste</div>
+        </div>
+        <div class="text-center border-x border-white/10">
+          <div class="text-3xl font-extrabold text-white">2×</div>
+          <div class="text-xs text-emerald-200/70 mt-1 uppercase tracking-wide">Faster ordering</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-extrabold text-white">360°</div>
+          <div class="text-xs text-emerald-200/70 mt-1 uppercase tracking-wide">Restaurant view</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Panoramic Illustration ── -->
+  <section class="w-full overflow-hidden bg-stone-900 relative" style="height:clamp(260px,38vw,520px)">
+    <svg viewBox="0 0 1400 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+      <defs>
+        <linearGradient id="p-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#050310"/>
+          <stop offset="65%" stop-color="#0c0828"/>
+          <stop offset="100%" stop-color="#180e3a"/>
+        </linearGradient>
+        <linearGradient id="p-ground" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1c1410"/>
+          <stop offset="100%" stop-color="#0e0a08"/>
+        </linearGradient>
+        <radialGradient id="p-moon-g" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fffde8"/>
+          <stop offset="45%" stop-color="#fef9c3" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#fef9c3" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="p-glow"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="p-glow-lg"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="p-blur"><feGaussianBlur stdDeviation="5"/></filter>
+        <filter id="p-blur-sm"><feGaussianBlur stdDeviation="2"/></filter>
+        <!-- Standard lit window -->
+        <symbol id="wl" viewBox="0 0 44 42"><rect width="44" height="42" rx="1" fill="#fde68a" opacity="0.78"/><line x1="22" y1="0" x2="22" y2="42" stroke="#b8890a" stroke-width="1.2" opacity="0.35"/><line x1="0" y1="21" x2="44" y2="21" stroke="#b8890a" stroke-width="1.2" opacity="0.35"/></symbol>
+        <!-- Warm white window -->
+        <symbol id="ww" viewBox="0 0 44 42"><rect width="44" height="42" rx="1" fill="#fef3c7" opacity="0.82"/><line x1="22" y1="0" x2="22" y2="42" stroke="#c9b020" stroke-width="1.2" opacity="0.35"/><line x1="0" y1="21" x2="44" y2="21" stroke="#c9b020" stroke-width="1.2" opacity="0.35"/></symbol>
+        <!-- Dark/off window -->
+        <symbol id="wd" viewBox="0 0 44 42"><rect width="44" height="42" rx="1" fill="#120e08"/></symbol>
+        <!-- Arched window lit -->
+        <symbol id="wal" viewBox="0 0 50 88"><path d="M0 88 L0 32 Q0 0 25 0 Q50 0 50 32 L50 88Z" fill="#fde68a" opacity="0.82"/><line x1="25" y1="0" x2="25" y2="88" stroke="#b8890a" stroke-width="1.5" opacity="0.3"/></symbol>
+        <!-- Arched window warm -->
+        <symbol id="waw" viewBox="0 0 50 88"><path d="M0 88 L0 32 Q0 0 25 0 Q50 0 50 32 L50 88Z" fill="#fef3c7" opacity="0.78"/><line x1="25" y1="0" x2="25" y2="88" stroke="#c9b020" stroke-width="1.5" opacity="0.3"/></symbol>
+      </defs>
+
+      <!-- ═══ SKY ═══ -->
+      <rect width="1400" height="480" fill="url(#p-sky)"/>
+
+      <!-- Stars -->
+      <circle cx="42"  cy="18"  r="1.1" fill="#fff" opacity=".85"/><circle cx="98"  cy="45"  r=".8" fill="#fff" opacity=".6"/><circle cx="175" cy="12"  r="1.3" fill="#fff" opacity=".9"/>
+      <circle cx="230" cy="38"  r=".7" fill="#fff" opacity=".5"/><circle cx="310" cy="22"  r="1"  fill="#fff" opacity=".75"/><circle cx="380" cy="55"  r=".8" fill="#fff" opacity=".6"/>
+      <circle cx="450" cy="8"   r="1.2" fill="#fff" opacity=".8"/><circle cx="530" cy="34"  r=".9" fill="#fff" opacity=".7"/><circle cx="600" cy="60"  r=".7" fill="#fff" opacity=".5"/>
+      <circle cx="660" cy="15"  r="1"  fill="#fff" opacity=".8"/><circle cx="720" cy="42"  r=".8" fill="#fff" opacity=".6"/><circle cx="780" cy="10"  r="1.1" fill="#fff" opacity=".9"/>
+      <circle cx="840" cy="50"  r=".7" fill="#fff" opacity=".5"/><circle cx="920" cy="25"  r="1"  fill="#fff" opacity=".75"/><circle cx="1000" cy="38" r=".8" fill="#fff" opacity=".65"/>
+      <circle cx="1070" cy="14" r="1.2" fill="#fff" opacity=".85"/><circle cx="1150" cy="48" r=".7" fill="#fff" opacity=".5"/><circle cx="1240" cy="22" r=".9" fill="#fff" opacity=".7"/>
+      <circle cx="1310" cy="52" r=".8" fill="#fff" opacity=".6"/><circle cx="1380" cy="16" r="1"  fill="#fff" opacity=".8"/>
+      <circle cx="70"  cy="80"  r=".8" fill="#fff" opacity=".5"/><circle cx="155" cy="72"  r="1"  fill="#fff" opacity=".65"/><circle cx="260" cy="90"  r=".7" fill="#fff" opacity=".55"/>
+      <circle cx="340" cy="68"  r="1.1" fill="#fff" opacity=".8"/><circle cx="490" cy="78"  r=".8" fill="#fff" opacity=".55"/><circle cx="570" cy="95"  r=".7" fill="#fff" opacity=".5"/>
+      <circle cx="700" cy="82"  r="1"  fill="#fff" opacity=".7"/><circle cx="790" cy="70"  r=".8" fill="#fff" opacity=".55"/><circle cx="860" cy="92"  r="1.1" fill="#fff" opacity=".8"/>
+      <circle cx="990" cy="75"  r=".7" fill="#fff" opacity=".5"/><circle cx="1090" cy="85" r=".9" fill="#fff" opacity=".65"/><circle cx="1180" cy="68" r=".8" fill="#fff" opacity=".6"/>
+      <circle cx="1290" cy="88" r="1"  fill="#fff" opacity=".7"/><circle cx="1360" cy="72" r=".7" fill="#fff" opacity=".5"/>
+      <!-- Star twinkles -->
+      <circle cx="115" cy="115" r=".8" fill="#fff" opacity=".45"/><circle cx="200" cy="122" r="1"  fill="#fff" opacity=".6"/><circle cx="470" cy="112" r=".7" fill="#fff" opacity=".5"/>
+      <circle cx="630" cy="130" r=".8" fill="#fff" opacity=".45"/><circle cx="760" cy="105" r="1.1" fill="#fff" opacity=".7"/><circle cx="1020" cy="118" r=".7" fill="#fff" opacity=".5"/>
+      <circle cx="1140" cy="128" r=".9" fill="#fff" opacity=".6"/><circle cx="1360" cy="108" r=".8" fill="#fff" opacity=".45"/>
+
+      <!-- Moon halo -->
+      <circle cx="1230" cy="62" r="58" fill="url(#p-moon-g)" filter="url(#p-blur)"/>
+      <!-- Moon -->
+      <circle cx="1230" cy="62" r="30" fill="#fffde8" opacity=".96" filter="url(#p-glow)"/>
+      <!-- Crescent shadow -->
+      <circle cx="1244" cy="57" r="25" fill="#0c0825" opacity=".72"/>
+
+      <!-- Distant city silhouette -->
+      <rect x="580" y="238" width="22" height="82" fill="#0f0c28" opacity=".85"/>
+      <rect x="607" y="218" width="18" height="102" fill="#0f0c28" opacity=".85"/>
+      <rect x="630" y="250" width="16" height="70" fill="#0f0c28" opacity=".85"/>
+      <rect x="652" y="228" width="20" height="92" fill="#0f0c28" opacity=".85"/>
+      <rect x="678" y="208" width="14" height="112" fill="#0f0c28" opacity=".85"/>
+      <rect x="698" y="242" width="18" height="78" fill="#0f0c28" opacity=".85"/>
+      <rect x="722" y="222" width="22" height="98" fill="#0f0c28" opacity=".85"/>
+      <rect x="750" y="234" width="16" height="86" fill="#0f0c28" opacity=".85"/>
+      <rect x="772" y="215" width="20" height="105" fill="#0f0c28" opacity=".85"/>
+      <!-- Tiny distant windows -->
+      <rect x="611" y="226" width="3" height="2" fill="#fde68a" opacity=".55"/>
+      <rect x="618" y="234" width="3" height="2" fill="#fde68a" opacity=".4"/>
+      <rect x="682" y="216" width="2" height="2" fill="#fde68a" opacity=".6"/>
+      <rect x="688" y="226" width="2" height="2" fill="#fde68a" opacity=".45"/>
+      <rect x="726" y="230" width="3" height="2" fill="#fde68a" opacity=".5"/>
+      <rect x="756" y="240" width="2" height="2" fill="#fde68a" opacity=".55"/>
+      <rect x="776" y="222" width="3" height="2" fill="#fde68a" opacity=".4"/>
+
+      <!-- ═══ GROUND ═══ -->
+      <rect x="0" y="400" width="1400" height="80" fill="url(#p-ground)"/>
+      <rect x="0" y="398" width="1400" height="4" fill="#251a12" opacity=".9"/>
+      <!-- Ground light pools -->
+      <ellipse cx="220" cy="410" rx="130" ry="22" fill="#f59e0b" opacity=".07" filter="url(#p-blur)"/>
+      <ellipse cx="1080" cy="410" rx="160" ry="26" fill="#fde68a" opacity=".07" filter="url(#p-blur)"/>
+
+      <!-- ═══ LEFT EDGE TREE ═══ -->
+      <rect x="20" y="318" width="9" height="88" fill="#150e08"/>
+      <ellipse cx="24" cy="295" rx="34" ry="48" fill="#0c1d08" opacity=".95"/>
+      <ellipse cx="24" cy="278" rx="26" ry="34" fill="#0f2509" opacity=".95"/>
+
+      <!-- ═══ RESTAURANT (x:55–540) ═══ -->
+      <!-- Ambient glow -->
+      <rect x="55" y="190" width="485" height="215" fill="#f59e0b" opacity=".03" filter="url(#p-blur)"/>
+
+      <!-- ROOF -->
+      <polygon points="50,225 297,162 544,225" fill="#22180e"/>
+      <polygon points="50,225 297,162 544,225" fill="none" stroke="#2e1e12" stroke-width="1"/>
+      <!-- Chimneys -->
+      <rect x="172" y="148" width="24" height="50" fill="#1c120a"/>
+      <rect x="167" y="143" width="34" height="8" fill="#1c120a"/>
+      <rect x="345" y="156" width="20" height="44" fill="#1c120a"/>
+      <rect x="340" y="151" width="30" height="8" fill="#1c120a"/>
+      <!-- Roof dormers -->
+      <polygon points="228,196 244,178 260,196" fill="#1a100c"/>
+      <rect x="231" y="183" width="26" height="13" rx="1" fill="#fde68a" opacity=".7"/>
+      <rect x="229" y="181" width="30" height="17" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <polygon points="316,196 332,178 348,196" fill="#1a100c"/>
+      <rect x="319" y="183" width="26" height="13" rx="1" fill="#fde68a" opacity=".6"/>
+
+      <!-- FLOOR 2 body -->
+      <rect x="60" y="225" width="484" height="100" fill="#231710"/>
+      <!-- Floor 2 pilasters -->
+      <rect x="60" y="225" width="9" height="180" fill="#2c1c12"/>
+      <rect x="157" y="225" width="9" height="180" fill="#2c1c12"/>
+      <rect x="238" y="225" width="9" height="180" fill="#2c1c12"/>
+      <rect x="316" y="225" width="9" height="180" fill="#2c1c12"/>
+      <rect x="394" y="225" width="9" height="180" fill="#2c1c12"/>
+      <rect x="472" y="225" width="9" height="180" fill="#2c1c12"/>
+      <rect x="535" y="225" width="9" height="180" fill="#2c1c12"/>
+      <!-- Floor 2 windows -->
+      <use href="#wl" x="72"  y="235" width="80" height="76"/>
+      <use href="#ww" x="169" y="235" width="64" height="76"/>
+      <use href="#wl" x="249" y="235" width="62" height="76" opacity=".55"/>
+      <use href="#ww" x="327" y="235" width="62" height="76"/>
+      <use href="#wl" x="405" y="235" width="62" height="76"/>
+      <use href="#wd" x="483" y="235" width="46" height="76"/>
+      <!-- Floor 2 glow halos -->
+      <rect x="70"  y="233" width="84" height="80" fill="#fde68a" opacity=".12" filter="url(#p-blur-sm)"/>
+      <rect x="167" y="233" width="68" height="80" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="325" y="233" width="66" height="80" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="403" y="233" width="66" height="80" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <!-- Floor 2 ledge -->
+      <rect x="55" y="323" width="490" height="6" fill="#2c1e12"/>
+
+      <!-- GROUND FLOOR body -->
+      <rect x="60" y="329" width="484" height="76" fill="#1e1208"/>
+      <!-- Arched windows -->
+      <!-- Arch 1 -->
+      <path d="M88 405 L88 360 Q88 337 112 337 Q136 337 136 360 L136 405Z" fill="#100806"/>
+      <path d="M90 405 L90 361 Q90 339 112 339 Q134 339 134 361 L134 405Z" fill="#fde68a" opacity=".82"/>
+      <rect x="88" y="335" width="50" height="72" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <ellipse cx="112" cy="407" rx="38" ry="9" fill="#f59e0b" opacity=".18"/>
+      <!-- Arch 2 -->
+      <path d="M200 405 L200 360 Q200 337 224 337 Q248 337 248 360 L248 405Z" fill="#100806"/>
+      <path d="M202 405 L202 361 Q202 339 224 339 Q246 339 246 361 L246 405Z" fill="#fef3c7" opacity=".85"/>
+      <rect x="200" y="335" width="50" height="72" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <ellipse cx="224" cy="407" rx="38" ry="9" fill="#fde68a" opacity=".2"/>
+      <!-- Entrance double doors -->
+      <rect x="264" y="335" width="72" height="72" fill="#0c0804"/>
+      <rect x="267" y="337" width="31" height="70" fill="#180e06" opacity=".9"/>
+      <rect x="302" y="337" width="31" height="70" fill="#180e06" opacity=".9"/>
+      <line x1="300" y1="337" x2="300" y2="407" stroke="#2a1c0a" stroke-width="2"/>
+      <circle cx="292" cy="375" r="3.5" fill="#8b6914"/>
+      <circle cx="308" cy="375" r="3.5" fill="#8b6914"/>
+      <ellipse cx="300" cy="408" rx="40" ry="10" fill="#f59e0b" opacity=".18"/>
+      <!-- Restaurant sign -->
+      <rect x="244" y="308" width="112" height="22" rx="3" fill="#1a0e06"/>
+      <rect x="246" y="310" width="108" height="18" rx="2" fill="#8b6914" opacity=".5"/>
+      <text x="300" y="322" text-anchor="middle" font-size="8.5" fill="#fde68a" font-family="Georgia,serif" letter-spacing="1.5" opacity=".92">LA CUCINA</text>
+      <!-- Arch 3 -->
+      <path d="M355 405 L355 360 Q355 337 379 337 Q403 337 403 360 L403 405Z" fill="#100806"/>
+      <path d="M357 405 L357 361 Q357 339 379 339 Q401 339 401 361 L401 405Z" fill="#fde68a" opacity=".78"/>
+      <ellipse cx="379" cy="407" rx="38" ry="9" fill="#f59e0b" opacity=".16"/>
+      <!-- Arch 4 -->
+      <path d="M437 405 L437 360 Q437 337 461 337 Q485 337 485 360 L485 405Z" fill="#100806"/>
+      <path d="M439 405 L439 361 Q439 339 461 339 Q483 339 483 361 L483 405Z" fill="#fef3c7" opacity=".72"/>
+
+      <!-- OUTDOOR TERRACE string lights wire -->
+      <path d="M72 358 Q180 378 300 362 Q420 346 535 358" fill="none" stroke="#3d2a0e" stroke-width="1.5"/>
+      <!-- Bulbs -->
+      <circle cx="95"  cy="362" r="3.5" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <circle cx="130" cy="370" r="3"   fill="#fef3c7" opacity=".85"/>
+      <circle cx="168" cy="376" r="3.5" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <circle cx="208" cy="378" r="3"   fill="#fef3c7" opacity=".8"/>
+      <circle cx="250" cy="375" r="3.5" fill="#fde68a" opacity=".9"/>
+      <circle cx="285" cy="369" r="3"   fill="#fef3c7" opacity=".85"/>
+      <circle cx="320" cy="363" r="3.5" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <circle cx="360" cy="357" r="3"   fill="#fef3c7" opacity=".8"/>
+      <circle cx="400" cy="353" r="3.5" fill="#fde68a" opacity=".9"/>
+      <circle cx="440" cy="352" r="3"   fill="#fef3c7" opacity=".85"/>
+      <circle cx="480" cy="355" r="3.5" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <circle cx="518" cy="358" r="3"   fill="#fef3c7" opacity=".8"/>
+      <!-- Terrace tables & candles -->
+      <!-- Table 1 -->
+      <ellipse cx="108" cy="402" rx="22" ry="6" fill="#2a1a0e"/>
+      <rect x="106" y="395" width="4" height="7" fill="#f5f0e8"/>
+      <circle cx="108" cy="393" r="2.8" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <path d="M97 400 L99 395 L95 395Z" fill="#c0b090" opacity=".6"/>
+      <path d="M119 400 L121 395 L117 395Z" fill="#c0b090" opacity=".6"/>
+      <!-- Table 2 + people -->
+      <ellipse cx="208" cy="402" rx="22" ry="6" fill="#2a1a0e"/>
+      <rect x="206" y="395" width="4" height="7" fill="#f5f0e8"/>
+      <circle cx="208" cy="393" r="2.8" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <circle cx="192" cy="396" r="5.5" fill="#100a06"/><rect x="189" y="401" width="7" height="9" fill="#100a06"/>
+      <circle cx="224" cy="396" r="5.5" fill="#100a06"/><rect x="221" y="401" width="7" height="9" fill="#100a06"/>
+      <!-- Table 3 + person -->
+      <ellipse cx="415" cy="402" rx="22" ry="6" fill="#2a1a0e"/>
+      <rect x="413" y="395" width="4" height="7" fill="#f5f0e8"/>
+      <circle cx="415" cy="393" r="2.8" fill="#fde68a" opacity=".9"/>
+      <circle cx="432" cy="396" r="5.5" fill="#100a06"/><rect x="429" y="401" width="7" height="9" fill="#100a06"/>
+      <!-- Terrace planters -->
+      <rect x="64" y="382" width="13" height="22" fill="#1a1208" rx="2"/>
+      <ellipse cx="70" cy="376" rx="15" ry="19" fill="#0c1f08" opacity=".95"/>
+      <ellipse cx="70" cy="365" rx="11" ry="13" fill="#0f2709" opacity=".95"/>
+      <rect x="520" y="382" width="13" height="22" fill="#1a1208" rx="2"/>
+      <ellipse cx="526" cy="376" rx="15" ry="19" fill="#0c1f08" opacity=".95"/>
+      <ellipse cx="526" cy="365" rx="11" ry="13" fill="#0f2709" opacity=".95"/>
+
+      <!-- ═══ CENTER PLAZA ═══ -->
+      <!-- Trees -->
+      <rect x="578" y="298" width="10" height="108" fill="#180e08"/>
+      <ellipse cx="583" cy="272" rx="40" ry="55" fill="#0c1d08" opacity=".95"/>
+      <ellipse cx="583" cy="254" rx="30" ry="40" fill="#0f2509" opacity=".95"/>
+      <rect x="622" y="318" width="8" height="88" fill="#180e08"/>
+      <ellipse cx="626" cy="296" rx="30" ry="42" fill="#0c1d08" opacity=".9"/>
+      <ellipse cx="626" cy="282" rx="22" ry="30" fill="#0f2509" opacity=".95"/>
+      <!-- Low hedge -->
+      <rect x="540" y="372" width="192" height="14" fill="#0e1c08" rx="3"/>
+      <rect x="540" y="366" width="192" height="10" fill="#132008" rx="3"/>
+      <!-- Lamp post -->
+      <rect x="698" y="302" width="6" height="102" fill="#28221a"/>
+      <ellipse cx="701" cy="300" rx="12" ry="7" fill="#28221a"/>
+      <circle cx="701" cy="300" r="6" fill="#fde68a" opacity=".9" filter="url(#p-glow)"/>
+      <path d="M701 306 L674 382 L728 382Z" fill="#fde68a" opacity=".05" filter="url(#p-blur-sm)"/>
+      <!-- Center string lights connecting buildings -->
+      <path d="M528 358 Q618 380 718 360 Q818 340 872 346" fill="none" stroke="#3d2a0e" stroke-width="1.2" opacity=".65"/>
+      <circle cx="550" cy="365" r="2.5" fill="#fde68a" opacity=".8"/>
+      <circle cx="588" cy="374" r="2.5" fill="#fef3c7" opacity=".7"/>
+      <circle cx="628" cy="379" r="2.5" fill="#fde68a" opacity=".8"/>
+      <circle cx="668" cy="377" r="2.5" fill="#fef3c7" opacity=".75"/>
+      <circle cx="710" cy="368" r="2.5" fill="#fde68a" opacity=".8"/>
+      <circle cx="752" cy="358" r="2.5" fill="#fef3c7" opacity=".7"/>
+      <circle cx="794" cy="350" r="2.5" fill="#fde68a" opacity=".8"/>
+      <circle cx="836" cy="347" r="2.5" fill="#fef3c7" opacity=".75"/>
+      <circle cx="860" cy="346" r="2.5" fill="#fde68a" opacity=".8"/>
+
+      <!-- ═══ HOTEL (x:872–1370) ═══ -->
+      <!-- Ambient glow -->
+      <rect x="872" y="140" width="500" height="268" fill="#fef3c7" opacity=".025" filter="url(#p-blur)"/>
+      <!-- Hotel body -->
+      <rect x="878" y="170" width="492" height="238" fill="#1e1a12"/>
+      <!-- Balustrade top -->
+      <rect x="872" y="164" width="504" height="10" fill="#28221a"/>
+      <rect x="872" y="155" width="504" height="12" fill="#28221a"/>
+      <!-- Balustrade pillars -->
+      <g fill="#28221a">
+        <rect x="882" y="147" width="7" height="20"/><rect x="902" y="147" width="7" height="20"/><rect x="922" y="147" width="7" height="20"/><rect x="942" y="147" width="7" height="20"/>
+        <rect x="962" y="147" width="7" height="20"/><rect x="982" y="147" width="7" height="20"/><rect x="1002" y="147" width="7" height="20"/><rect x="1022" y="147" width="7" height="20"/>
+        <rect x="1042" y="147" width="7" height="20"/><rect x="1062" y="147" width="7" height="20"/><rect x="1082" y="147" width="7" height="20"/><rect x="1102" y="147" width="7" height="20"/>
+        <rect x="1122" y="147" width="7" height="20"/><rect x="1142" y="147" width="7" height="20"/><rect x="1162" y="147" width="7" height="20"/><rect x="1182" y="147" width="7" height="20"/>
+        <rect x="1202" y="147" width="7" height="20"/><rect x="1222" y="147" width="7" height="20"/><rect x="1242" y="147" width="7" height="20"/><rect x="1262" y="147" width="7" height="20"/>
+        <rect x="1282" y="147" width="7" height="20"/><rect x="1302" y="147" width="7" height="20"/><rect x="1322" y="147" width="7" height="20"/><rect x="1342" y="147" width="7" height="20"/>
+        <rect x="1357" y="147" width="7" height="20"/>
+      </g>
+      <!-- Corner pilasters -->
+      <rect x="876" y="164" width="12" height="244" fill="#28221a"/>
+      <rect x="1360" y="164" width="12" height="244" fill="#28221a"/>
+      <!-- Intermediate pilasters -->
+      <rect x="1030" y="300" width="10" height="108" fill="#28221a"/>
+      <rect x="1188" y="300" width="10" height="108" fill="#28221a"/>
+
+      <!-- Floor ledges -->
+      <rect x="872" y="233" width="500" height="5" fill="#2e261a"/>
+      <rect x="872" y="298" width="500" height="5" fill="#2e261a"/>
+      <rect x="872" y="363" width="500" height="5" fill="#2e261a"/>
+      <rect x="872" y="425" width="500" height="5" fill="#2e261a"/>
+
+      <!-- FLOOR 5 windows (y=178, 8 positions: x=893,956,1019,1082,1145,1208,1271,1320) -->
+      <use href="#wl"  x="893"  y="179" width="55" height="49"/>
+      <use href="#wd"  x="956"  y="179" width="55" height="49"/>
+      <use href="#ww"  x="1019" y="179" width="55" height="49"/>
+      <use href="#wl"  x="1082" y="179" width="55" height="49"/>
+      <use href="#ww"  x="1145" y="179" width="55" height="49"/>
+      <use href="#wd"  x="1208" y="179" width="55" height="49"/>
+      <use href="#wl"  x="1271" y="179" width="55" height="49"/>
+      <use href="#ww"  x="1316" y="179" width="42" height="49"/>
+      <!-- Floor 5 glows -->
+      <rect x="891"  y="177" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1017" y="177" width="59" height="53" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1080" y="177" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1143" y="177" width="59" height="53" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1269" y="177" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+
+      <!-- FLOOR 4 (y=243) -->
+      <use href="#ww"  x="893"  y="243" width="55" height="49"/>
+      <use href="#wl"  x="956"  y="243" width="55" height="49"/>
+      <use href="#wd"  x="1019" y="243" width="55" height="49"/>
+      <use href="#wl"  x="1082" y="243" width="55" height="49"/>
+      <use href="#ww"  x="1145" y="243" width="55" height="49"/>
+      <use href="#wl"  x="1208" y="243" width="55" height="49"/>
+      <use href="#wd"  x="1271" y="243" width="55" height="49"/>
+      <use href="#ww"  x="1316" y="243" width="42" height="49"/>
+      <rect x="891"  y="241" width="59" height="53" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="954"  y="241" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1080" y="241" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1143" y="241" width="59" height="53" fill="#fef3c7" opacity=".12" filter="url(#p-blur-sm)"/>
+      <rect x="1206" y="241" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+
+      <!-- FLOOR 3 (y=308) -->
+      <use href="#wd"  x="893"  y="308" width="55" height="49"/>
+      <use href="#wl"  x="956"  y="308" width="55" height="49"/>
+      <use href="#ww"  x="1019" y="308" width="55" height="49"/>
+      <use href="#wd"  x="1082" y="308" width="55" height="49"/>
+      <use href="#wl"  x="1145" y="308" width="55" height="49"/>
+      <use href="#ww"  x="1208" y="308" width="55" height="49"/>
+      <use href="#wl"  x="1271" y="308" width="55" height="49"/>
+      <use href="#wd"  x="1316" y="308" width="42" height="49"/>
+      <rect x="954"  y="306" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1017" y="306" width="59" height="53" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1143" y="306" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1206" y="306" width="59" height="53" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1269" y="306" width="59" height="53" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+
+      <!-- FLOOR 2 — arched windows (y=372, h=50) -->
+      <use href="#wal" x="893"  y="372" width="55" height="50"/>
+      <use href="#waw" x="956"  y="372" width="55" height="50"/>
+      <use href="#wal" x="1019" y="372" width="55" height="50" opacity=".55"/>
+      <use href="#waw" x="1145" y="372" width="55" height="50"/>
+      <use href="#wal" x="1208" y="372" width="55" height="50"/>
+      <use href="#wd"  x="1271" y="372" width="55" height="50"/>
+      <use href="#waw" x="1316" y="372" width="42" height="50"/>
+      <rect x="891"  y="370" width="59" height="54" fill="#fde68a" opacity=".12" filter="url(#p-blur-sm)"/>
+      <rect x="954"  y="370" width="59" height="54" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <rect x="1143" y="370" width="59" height="54" fill="#fef3c7" opacity=".12" filter="url(#p-blur-sm)"/>
+      <rect x="1206" y="370" width="59" height="54" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+
+      <!-- GRAND ENTRANCE (center ground floor) -->
+      <!-- Columns -->
+      <rect x="1040" y="310" width="15" height="118" fill="#28221a"/>
+      <rect x="1036" y="307" width="23" height="7" fill="#2e2820"/>
+      <rect x="1036" y="425" width="23" height="7" fill="#2e2820"/>
+      <rect x="1172" y="310" width="15" height="118" fill="#28221a"/>
+      <rect x="1168" y="307" width="23" height="7" fill="#2e2820"/>
+      <rect x="1168" y="425" width="23" height="7" fill="#2e2820"/>
+      <!-- Entrance arch opening -->
+      <rect x="1058" y="338" width="111" height="92" fill="#0a0806"/>
+      <!-- Lit interior behind doors -->
+      <rect x="1060" y="340" width="107" height="88" fill="#f59e0b" opacity=".08"/>
+      <!-- Double doors -->
+      <rect x="1070" y="352" width="36" height="78" fill="#160e06" opacity=".9"/>
+      <rect x="1110" y="352" width="36" height="78" fill="#160e06" opacity=".9"/>
+      <line x1="1107" y1="352" x2="1107" y2="430" stroke="#2a1c0a" stroke-width="2.5"/>
+      <circle cx="1100" cy="394" r="3.5" fill="#8b6914"/>
+      <circle cx="1114" cy="394" r="3.5" fill="#8b6914"/>
+      <!-- Entrance light spill -->
+      <ellipse cx="1112" cy="432" rx="55" ry="14" fill="#fde68a" opacity=".22" filter="url(#p-blur-sm)"/>
+      <!-- Canopy/awning -->
+      <path d="M1030 312 L1040 330 L1184 330 L1194 312Z" fill="#1a1208"/>
+      <path d="M1030 312 L1194 312" stroke="#2a2010" stroke-width="2.5"/>
+      <line x1="1058" y1="312" x2="1048" y2="330" stroke="#252018" stroke-width="2" opacity=".6"/>
+      <line x1="1088" y1="312" x2="1080" y2="330" stroke="#252018" stroke-width="2" opacity=".6"/>
+      <line x1="1118" y1="312" x2="1112" y2="330" stroke="#252018" stroke-width="2" opacity=".6"/>
+      <line x1="1148" y1="312" x2="1145" y2="330" stroke="#252018" stroke-width="2" opacity=".6"/>
+      <line x1="1178" y1="312" x2="1178" y2="330" stroke="#252018" stroke-width="2" opacity=".6"/>
+      <!-- Hotel name sign -->
+      <rect x="1038" y="298" width="152" height="20" rx="3" fill="#120e08"/>
+      <rect x="1040" y="300" width="148" height="16" rx="2" fill="#8b6914" opacity=".45"/>
+      <text x="1114" y="312" text-anchor="middle" font-size="8.5" fill="#fde68a" font-family="Georgia,serif" letter-spacing="2.5" opacity=".92">GRAND HOTEL</text>
+      <!-- Ground floor side windows -->
+      <use href="#wal" x="893"  y="430" width="55" height="0"/>
+      <!-- Flanking arched windows ground floor left -->
+      <path d="M893 430 L893 398 Q893 380 916 380 Q939 380 939 398 L939 430Z" fill="#100808"/>
+      <path d="M895 430 L895 399 Q895 382 916 382 Q937 382 937 399 L937 430Z" fill="#fde68a" opacity=".78"/>
+      <rect x="891" y="378" width="50" height="54" fill="#fde68a" opacity=".1" filter="url(#p-blur-sm)"/>
+      <path d="M956 430 L956 398 Q956 380 979 380 Q1002 380 1002 398 L1002 430Z" fill="#100808"/>
+      <path d="M958 430 L958 399 Q958 382 979 382 Q1000 382 1000 399 L1000 430Z" fill="#fef3c7" opacity=".75"/>
+      <!-- Flanking arched windows ground floor right -->
+      <path d="M1214 430 L1214 398 Q1214 380 1237 380 Q1260 380 1260 398 L1260 430Z" fill="#100808"/>
+      <path d="M1216 430 L1216 399 Q1216 382 1237 382 Q1258 382 1258 399 L1258 430Z" fill="#fef3c7" opacity=".75"/>
+      <rect x="1212" y="378" width="50" height="54" fill="#fef3c7" opacity=".1" filter="url(#p-blur-sm)"/>
+      <path d="M1278 430 L1278 398 Q1278 380 1301 380 Q1324 380 1324 398 L1324 430Z" fill="#100808"/>
+      <path d="M1280 430 L1280 399 Q1280 382 1301 382 Q1322 382 1322 399 L1322 430Z" fill="#fde68a" opacity=".78"/>
+      <!-- Doorman -->
+      <circle cx="1028" cy="414" r="7.5" fill="#0e0c08"/>
+      <rect x="1022" y="421" width="11" height="17" fill="#0e0c08"/>
+      <rect x="1023" y="404" width="9" height="11" fill="#0e0c08"/>
+      <rect x="1019" y="414" width="17" height="3.5" fill="#0e0c08"/>
+
+      <!-- ═══ RIGHT EDGE TREE ═══ -->
+      <rect x="1375" y="312" width="9" height="94" fill="#150e08"/>
+      <ellipse cx="1379" cy="286" rx="34" ry="48" fill="#0c1d08" opacity=".95"/>
+      <ellipse cx="1379" cy="270" rx="26" ry="35" fill="#0f2509" opacity=".95"/>
+
+      <!-- ═══ FOREGROUND COBBLESTONE ═══ -->
+      <rect x="0" y="398" width="1400" height="82" fill="#110d08"/>
+      <ellipse cx="160"  cy="416" rx="28" ry="7" fill="#1a1410" opacity=".7"/>
+      <ellipse cx="340"  cy="422" rx="32" ry="7" fill="#1a1410" opacity=".6"/>
+      <ellipse cx="520"  cy="414" rx="30" ry="7" fill="#1a1410" opacity=".7"/>
+      <ellipse cx="710"  cy="420" rx="36" ry="8" fill="#1a1410" opacity=".6"/>
+      <ellipse cx="900"  cy="415" rx="30" ry="7" fill="#1a1410" opacity=".7"/>
+      <ellipse cx="1090" cy="422" rx="32" ry="8" fill="#1a1410" opacity=".6"/>
+      <ellipse cx="1280" cy="416" rx="28" ry="7" fill="#1a1410" opacity=".7"/>
+    </svg>
+    <!-- Caption overlay -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/30 backdrop-blur-sm text-white/70 text-xs font-medium px-4 py-2 rounded-full">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+      Restaurant &amp; Hotel Management — all in one platform
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section id="features" class="py-24 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Everything you need</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-stone-900 mt-3 mb-5">One platform, full control</h2>
+        <p class="text-stone-500 text-lg max-w-xl mx-auto">From the walk-in fridge to the dining room — Kitchen Helper covers every corner of your operation.</p>
+      </div>
+
+      <!-- Featured: Inventory + Waste Reduction -->
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+
+        <!-- Inventory Management (hero feature) -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-stone-100 card-hover col-span-1 flex flex-col">
+          <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 10V7"/>
+            </svg>
+          </div>
+          <div class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 self-start">
+            ★ Core feature
+          </div>
+          <h3 class="text-xl font-bold text-stone-900 mb-3">Smart Inventory Management</h3>
+          <p class="text-stone-500 leading-relaxed mb-4">Track every ingredient in real time. Set minimum stock levels, monitor quantities and costs, filter by category, and always know what's in your kitchen.</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-stone-600"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Real-time stock levels &amp; valuations</li>
+            <li class="flex items-center gap-2 text-sm text-stone-600"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Expiry date alerts &amp; low-stock warnings</li>
+            <li class="flex items-center gap-2 text-sm text-stone-600"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Scan invoices with AI — auto-fill stock</li>
+            <li class="flex items-center gap-2 text-sm text-stone-600"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Supplier tracking per item</li>
+          </ul>
+          <!-- App mockup: inventory table -->
+          <div class="mt-auto rounded-2xl overflow-hidden border border-stone-200 shadow-md text-xs">
+            <!-- Window chrome -->
+            <div class="bg-stone-100 px-3 py-2 flex items-center gap-1.5 border-b border-stone-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span class="ml-2 text-stone-400 text-xs">Inventory</span>
+            </div>
+            <!-- Table header -->
+            <div class="bg-stone-50 grid grid-cols-4 px-3 py-1.5 border-b border-stone-100">
+              <span class="text-stone-400 font-semibold uppercase" style="font-size:9px">Item</span>
+              <span class="text-stone-400 font-semibold uppercase" style="font-size:9px">Qty</span>
+              <span class="text-stone-400 font-semibold uppercase" style="font-size:9px">Expires</span>
+              <span class="text-stone-400 font-semibold uppercase" style="font-size:9px">Value</span>
+            </div>
+            <!-- Rows -->
+            <div class="bg-white divide-y divide-stone-50">
+              <div class="grid grid-cols-4 px-3 py-2 items-center">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Chicken Breast</span>
+                <span class="text-stone-600" style="font-size:10px">12 kg</span>
+                <span class="text-amber-600 font-medium" style="font-size:10px">2d left</span>
+                <span class="text-stone-600" style="font-size:10px">€47.00</span>
+              </div>
+              <div class="grid grid-cols-4 px-3 py-2 items-center">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Salmon Fillet</span>
+                <span class="text-stone-600" style="font-size:10px">5 kg</span>
+                <span class="text-emerald-600 font-medium" style="font-size:10px">8d left</span>
+                <span class="text-stone-600" style="font-size:10px">€65.00</span>
+              </div>
+              <div class="grid grid-cols-4 px-3 py-2 items-center">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Cherry Tomatoes</span>
+                <span class="text-red-500 font-semibold" style="font-size:10px">1 kg ⚠</span>
+                <span class="text-red-500 font-medium" style="font-size:10px">1d left</span>
+                <span class="text-stone-600" style="font-size:10px">€3.20</span>
+              </div>
+              <div class="grid grid-cols-4 px-3 py-2 items-center">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Olive Oil</span>
+                <span class="text-stone-600" style="font-size:10px">4 L</span>
+                <span class="text-emerald-600 font-medium" style="font-size:10px">45d left</span>
+                <span class="text-stone-600" style="font-size:10px">€28.00</span>
+              </div>
+            </div>
+            <!-- Footer bar -->
+            <div class="bg-stone-50 px-3 py-1.5 flex items-center justify-between border-t border-stone-100">
+              <span class="text-stone-400" style="font-size:9px">48 items total</span>
+              <span class="text-amber-600 font-semibold" style="font-size:9px">3 expiring soon</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waste Reduction (hero feature) -->
+        <div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-8 shadow-sm card-hover col-span-1 text-white flex flex-col">
+          <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div class="inline-flex items-center gap-1.5 bg-white/15 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full mb-4 self-start">
+            ★ Core feature
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Food Waste Reduction</h3>
+          <p class="text-emerald-200/80 leading-relaxed mb-4">Stop throwing money in the bin. Kitchen Helper surfaces what's about to expire, links inventory to recipes, and helps you plan menus around what you already have.</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-emerald-100"><span class="w-5 h-5 bg-white/15 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Expiry dashboard — 7-day rolling alerts</li>
+            <li class="flex items-center gap-2 text-sm text-emerald-100"><span class="w-5 h-5 bg-white/15 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Recipe cost linked to live stock</li>
+            <li class="flex items-center gap-2 text-sm text-emerald-100"><span class="w-5 h-5 bg-white/15 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Daily menu planning to use surplus stock</li>
+            <li class="flex items-center gap-2 text-sm text-emerald-100"><span class="w-5 h-5 bg-white/15 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Waste cost visible on dashboard</li>
+          </ul>
+          <!-- App mockup: waste / expiry dashboard -->
+          <div class="mt-auto rounded-2xl overflow-hidden shadow-xl text-xs" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">
+            <!-- Window chrome -->
+            <div class="px-3 py-2 flex items-center gap-1.5 border-b" style="background:rgba(0,0,0,0.15);border-color:rgba(255,255,255,0.1)">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-400/70"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400/70"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/70"></span>
+              <span class="ml-2 text-emerald-200/60 text-xs">Dashboard — Expiring Soon</span>
+            </div>
+            <!-- Stat row -->
+            <div class="grid grid-cols-3 gap-px p-3" style="background:rgba(0,0,0,0.1)">
+              <div class="rounded-xl p-2 text-center" style="background:rgba(255,255,255,0.07)">
+                <div class="text-white font-bold text-base">3</div>
+                <div class="text-emerald-300/70" style="font-size:9px">Expiring today</div>
+              </div>
+              <div class="rounded-xl p-2 text-center" style="background:rgba(255,255,255,0.07)">
+                <div class="text-white font-bold text-base">€94</div>
+                <div class="text-emerald-300/70" style="font-size:9px">At risk value</div>
+              </div>
+              <div class="rounded-xl p-2 text-center" style="background:rgba(255,255,255,0.07)">
+                <div class="text-white font-bold text-base">7</div>
+                <div class="text-emerald-300/70" style="font-size:9px">This week</div>
+              </div>
+            </div>
+            <!-- Alert items -->
+            <div class="px-3 pb-3 space-y-1.5">
+              <div class="flex items-center justify-between rounded-lg px-2.5 py-2" style="background:rgba(239,68,68,0.2)">
+                <div>
+                  <div class="text-white font-semibold" style="font-size:10px">Cherry Tomatoes</div>
+                  <div class="text-red-300" style="font-size:9px">Expires tomorrow</div>
+                </div>
+                <span class="text-red-300 font-bold text-xs">1d</span>
+              </div>
+              <div class="flex items-center justify-between rounded-lg px-2.5 py-2" style="background:rgba(245,158,11,0.2)">
+                <div>
+                  <div class="text-white font-semibold" style="font-size:10px">Chicken Breast</div>
+                  <div class="text-amber-300" style="font-size:9px">Expires in 2 days</div>
+                </div>
+                <span class="text-amber-300 font-bold text-xs">2d</span>
+              </div>
+              <div class="flex items-center justify-between rounded-lg px-2.5 py-2" style="background:rgba(245,158,11,0.15)">
+                <div>
+                  <div class="text-white font-semibold" style="font-size:10px">Heavy Cream</div>
+                  <div class="text-amber-300/80" style="font-size:9px">Expires in 3 days</div>
+                </div>
+                <span class="text-amber-300/80 font-bold text-xs">3d</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other features grid -->
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Recipe Costing</h3>
+          <p class="text-stone-500 text-sm leading-relaxed mb-5">Build recipes with per-ingredient costs. See exact dish margins and know your true cost of every plate served.</p>
+          <!-- Recipe costing mockup -->
+          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
+            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
+              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="ml-1 text-stone-400" style="font-size:9px">Grilled Salmon — Recipe Cost</span>
+            </div>
+            <div class="bg-white">
+              <div class="grid border-b border-stone-100" style="grid-template-columns:1fr auto auto">
+                <div class="px-3 py-1 text-stone-400 font-semibold uppercase" style="font-size:8px">Ingredient</div>
+                <div class="px-2 py-1 text-stone-400 font-semibold uppercase text-right" style="font-size:8px">Qty</div>
+                <div class="px-3 py-1 text-stone-400 font-semibold uppercase text-right" style="font-size:8px">Cost</div>
+              </div>
+              <div class="divide-y divide-stone-50">
+                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto">
+                  <span class="text-stone-600" style="font-size:10px">Salmon Fillet</span>
+                  <span class="px-2 text-stone-400 text-right" style="font-size:10px">200g</span>
+                  <span class="text-stone-700 text-right" style="font-size:10px">€2.60</span>
+                </div>
+                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto">
+                  <span class="text-stone-600" style="font-size:10px">Asparagus</span>
+                  <span class="px-2 text-stone-400 text-right" style="font-size:10px">80g</span>
+                  <span class="text-stone-700 text-right" style="font-size:10px">€0.48</span>
+                </div>
+                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto">
+                  <span class="text-stone-600" style="font-size:10px">Lemon Butter</span>
+                  <span class="px-2 text-stone-400 text-right" style="font-size:10px">30g</span>
+                  <span class="text-stone-700 text-right" style="font-size:10px">€0.22</span>
+                </div>
+              </div>
+              <div class="px-3 py-2 border-t border-stone-200 bg-stone-50 flex items-center justify-between">
+                <div>
+                  <div class="text-stone-500" style="font-size:9px">Total cost: <span class="font-semibold text-stone-700">€3.30</span></div>
+                  <div class="text-stone-500" style="font-size:9px">Selling: <span class="font-semibold text-stone-700">€18.00</span></div>
+                </div>
+                <div class="text-right">
+                  <div class="text-emerald-600 font-bold" style="font-size:11px">81.7%</div>
+                  <div class="text-stone-400" style="font-size:8px">margin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Staff Rota</h3>
+          <p class="text-stone-500 text-sm leading-relaxed mb-5">Build weekly schedules for FOH and BOH teams. Assign shifts by position — from head chef to bartender — across every day of the week.</p>
+          <!-- Rota mockup -->
+          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
+            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
+              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="ml-1 text-stone-400" style="font-size:9px">Rota — Week of Mar 18</span>
+            </div>
+            <div class="bg-white">
+              <!-- Day headers -->
+              <div class="grid border-b border-stone-100" style="grid-template-columns:90px repeat(5,1fr)">
+                <div class="px-2 py-1.5 text-stone-400 font-semibold uppercase" style="font-size:8px">Position</div>
+                <div class="px-1 py-1.5 text-stone-400 font-semibold uppercase text-center" style="font-size:8px">Mon</div>
+                <div class="px-1 py-1.5 text-stone-400 font-semibold uppercase text-center" style="font-size:8px">Tue</div>
+                <div class="px-1 py-1.5 text-stone-400 font-semibold uppercase text-center" style="font-size:8px">Wed</div>
+                <div class="px-1 py-1.5 text-stone-400 font-semibold uppercase text-center" style="font-size:8px">Thu</div>
+                <div class="px-1 py-1.5 text-stone-400 font-semibold uppercase text-center" style="font-size:8px">Fri</div>
+              </div>
+              <!-- Row 1 -->
+              <div class="grid border-b border-stone-50" style="grid-template-columns:90px repeat(5,1fr)">
+                <div class="px-2 py-2 text-stone-600 font-medium" style="font-size:9px">Head Chef</div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-emerald-100 text-emerald-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Marco</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-emerald-100 text-emerald-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Marco</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-stone-100 text-stone-400 rounded px-1 py-0.5" style="font-size:8px">OFF</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-emerald-100 text-emerald-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Marco</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-emerald-100 text-emerald-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Marco</span></div>
+              </div>
+              <!-- Row 2 -->
+              <div class="grid" style="grid-template-columns:90px repeat(5,1fr)">
+                <div class="px-2 py-2 text-stone-600 font-medium" style="font-size:9px">Sous Chef</div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-blue-100 text-blue-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Ioana</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-blue-100 text-blue-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Ioana</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-blue-100 text-blue-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Ioana</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-stone-100 text-stone-400 rounded px-1 py-0.5" style="font-size:8px">OFF</span></div>
+                <div class="px-1 py-1.5 text-center"><span class="bg-blue-100 text-blue-700 rounded px-1 py-0.5 font-medium" style="font-size:8px">Ioana</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Table Orders &amp; POS</h3>
+          <p class="text-stone-500 text-sm leading-relaxed mb-5">Open tables, take orders, send to the kitchen, track status from pending to served, and close bills — all in one flow.</p>
+          <!-- Orders mockup -->
+          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
+            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
+              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="ml-1 text-stone-400" style="font-size:9px">Active Orders</span>
+            </div>
+            <div class="bg-white divide-y divide-stone-50">
+              <div class="flex items-center justify-between px-3 py-2">
+                <div>
+                  <div class="text-stone-700 font-semibold" style="font-size:10px">Table 4 · 3 guests</div>
+                  <div class="text-stone-400 mt-0.5" style="font-size:9px">Risotto · Steak · Sea Bass</div>
+                </div>
+                <span class="bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Cooking</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2">
+                <div>
+                  <div class="text-stone-700 font-semibold" style="font-size:10px">Table 7 · 2 guests</div>
+                  <div class="text-stone-400 mt-0.5" style="font-size:9px">Pasta · Tiramisu</div>
+                </div>
+                <span class="bg-emerald-100 text-emerald-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Ready</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2">
+                <div>
+                  <div class="text-stone-700 font-semibold" style="font-size:10px">Table 2 · 5 guests</div>
+                  <div class="text-stone-400 mt-0.5" style="font-size:9px">Starter · Mains sent</div>
+                </div>
+                <span class="bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Sent</span>
+              </div>
+            </div>
+            <div class="bg-stone-50 px-3 py-1.5 border-t border-stone-100 flex justify-between">
+              <span class="text-stone-400" style="font-size:9px">6 open tables</span>
+              <span class="text-emerald-600 font-semibold" style="font-size:9px">€ 847 today</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Reservations</h3>
+          <p class="text-stone-500 text-sm leading-relaxed mb-5">Manage bookings, assign tables, track party sizes, allergy notes, and walk-in or confirmed status at a glance.</p>
+          <!-- Reservations mockup -->
+          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
+            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
+              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="ml-1 text-stone-400" style="font-size:9px">Reservations — Today</span>
+            </div>
+            <div class="bg-white divide-y divide-stone-50">
+              <div class="flex items-center justify-between px-3 py-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold" style="font-size:9px">JD</div>
+                  <div>
+                    <div class="text-stone-700 font-semibold" style="font-size:10px">John Davies · 4 pax</div>
+                    <div class="text-stone-400" style="font-size:9px">19:00 · Table 3</div>
+                  </div>
+                </div>
+                <span class="bg-emerald-100 text-emerald-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Confirmed</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 bg-stone-100 rounded-full flex items-center justify-center text-stone-600 font-bold" style="font-size:9px">SM</div>
+                  <div>
+                    <div class="text-stone-700 font-semibold" style="font-size:10px">Sarah Miller · 2 pax</div>
+                    <div class="text-stone-400" style="font-size:9px">20:30 · Table 6 · ⚠ Nuts</div>
+                  </div>
+                </div>
+                <span class="bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Seated</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold" style="font-size:9px">RP</div>
+                  <div>
+                    <div class="text-stone-700 font-semibold" style="font-size:10px">Rossi Party · 8 pax</div>
+                    <div class="text-stone-400" style="font-size:9px">21:00 · Table 1+2</div>
+                  </div>
+                </div>
+                <span class="bg-emerald-100 text-emerald-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Confirmed</span>
+              </div>
+            </div>
+            <div class="bg-stone-50 px-3 py-1.5 border-t border-stone-100">
+              <span class="text-stone-400" style="font-size:9px">8 bookings today · 31 covers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Digital Menu</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Build your full menu with categories, descriptions, prices, allergens, and dietary tags. Publish a public QR menu for guests.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Team &amp; Roles</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Add staff with fine-grained roles — owner, manager, head chef, sous chef, kitchen staff, waiter, and bartender. Each sees only what they need.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">AI Recipe Generator</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Generate new recipes based on your profile, cuisine style, and available ingredients. Save and build your recipe library over time.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Supply Orders</h3>
+          <p class="text-stone-500 text-sm leading-relaxed mb-5">Create, send, and track purchase orders directly from the app. Your supplier directory at your fingertips — order kitchen and FOH supplies in seconds.</p>
+          <!-- Supply order mockup -->
+          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
+            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
+              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="ml-1 text-stone-400" style="font-size:9px">New Order — Metro Foods Ltd</span>
+            </div>
+            <!-- Supplier header -->
+            <div class="bg-emerald-50 px-3 py-2 flex items-center justify-between border-b border-emerald-100">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center text-white font-bold" style="font-size:9px">MF</div>
+                <div>
+                  <div class="text-stone-700 font-semibold" style="font-size:10px">Metro Foods Ltd</div>
+                  <div class="text-stone-400" style="font-size:9px">orders@metrofoods.com</div>
+                </div>
+              </div>
+              <span class="bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Draft</span>
+            </div>
+            <!-- Order items -->
+            <div class="bg-white divide-y divide-stone-50">
+              <div class="flex items-center justify-between px-3 py-1.5">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Chicken Breast</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-stone-400" style="font-size:9px">20 kg</span>
+                  <span class="text-stone-600 font-medium" style="font-size:10px">€86.00</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between px-3 py-1.5">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Salmon Fillet</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-stone-400" style="font-size:9px">10 kg</span>
+                  <span class="text-stone-600 font-medium" style="font-size:10px">€130.00</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between px-3 py-1.5">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Cherry Tomatoes</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-stone-400" style="font-size:9px">15 kg</span>
+                  <span class="text-stone-600 font-medium" style="font-size:10px">€48.00</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between px-3 py-1.5">
+                <span class="text-stone-700 font-medium" style="font-size:10px">Heavy Cream</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-stone-400" style="font-size:9px">8 L</span>
+                  <span class="text-stone-600 font-medium" style="font-size:10px">€22.40</span>
+                </div>
+              </div>
+            </div>
+            <!-- Total + send button -->
+            <div class="bg-stone-50 px-3 py-2 border-t border-stone-200 flex items-center justify-between">
+              <div>
+                <div class="text-stone-500" style="font-size:9px">Total estimate</div>
+                <div class="text-stone-800 font-bold" style="font-size:11px">€286.40</div>
+              </div>
+              <button class="bg-emerald-500 text-white font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1" style="font-size:9px">
+                <svg style="width:10px;height:10px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Send to Supplier
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
+          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Multi-language</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Full UI translation in English, Romanian, Spanish, Italian, French, and German. Your whole team works in their own language.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ── -->
+  <section id="how-it-works" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Simple setup</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-stone-900 mt-3 mb-5">Up and running in minutes</h2>
+        <p class="text-stone-500 text-lg max-w-xl mx-auto">No complex integrations. No lengthy training. Just sign in and start managing your restaurant.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+            <span class="text-2xl font-black text-white">1</span>
+          </div>
+          <h3 class="text-xl font-bold text-stone-900 mb-3">Set up your restaurant</h3>
+          <p class="text-stone-500 leading-relaxed">Add your restaurant profile, cuisine type, and invite your team. Roles are automatically assigned so everyone sees what they need.</p>
+        </div>
+        <div class="text-center relative">
+          <div class="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-200 to-transparent"></div>
+          <div class="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+            <span class="text-2xl font-black text-white">2</span>
+          </div>
+          <h3 class="text-xl font-bold text-stone-900 mb-3">Load your inventory</h3>
+          <p class="text-stone-500 leading-relaxed">Scan your supplier invoices with AI to instantly populate stock, or add items manually. Set expiry dates and minimum levels.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+            <span class="text-2xl font-black text-white">3</span>
+          </div>
+          <h3 class="text-xl font-bold text-stone-900 mb-3">Manage daily operations</h3>
+          <p class="text-stone-500 leading-relaxed">Your dashboard shows expiring items, open orders, today's reservations, and staff schedules — all in one view every morning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section id="pricing" class="py-24 bg-stone-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Pricing</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-stone-900 mt-3 mb-5">Simple, transparent pricing</h2>
+        <p class="text-stone-500 text-lg max-w-xl mx-auto">No hidden fees. Cancel any time. All plans include a 14-day free trial.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 items-stretch">
+
+        <!-- Basic -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-stone-100 flex flex-col card-hover">
+          <div>
+            <h3 class="text-lg font-bold text-stone-900 mb-1">Basic</h3>
+            <p class="text-sm text-stone-400 mb-6">Small teams, getting started</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-stone-900">€29</span>
+              <span class="text-stone-400 text-sm ml-1">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 3 staff accounts</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Inventory management</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Expiry alerts</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Recipe costing (up to 20 dishes)</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Daily menu planning</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-400"><svg class="w-4 h-4 text-stone-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>FOH / POS features</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-400"><svg class="w-4 h-4 text-stone-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>AI recipe generator</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-400"><svg class="w-4 h-4 text-stone-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Invoice AI scanning</li>
+            </ul>
+          </div>
+          <a href="#cta" class="mt-auto block text-center border-2 border-emerald-500 text-emerald-700 font-semibold py-3.5 rounded-2xl hover:bg-emerald-50 transition-colors">
+            Start free trial
+          </a>
+        </div>
+
+        <!-- Standard (popular) -->
+        <div class="pricing-popular rounded-3xl p-8 shadow-xl flex flex-col relative card-hover">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span class="bg-amber-400 text-amber-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-md">Most Popular</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-1">Standard</h3>
+            <p class="text-sm text-emerald-200/70 mb-6">Growing restaurants</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-white">€69</span>
+              <span class="text-emerald-200/70 text-sm ml-1">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 15 staff accounts</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Basic</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Full FOH — orders, tables, reservations</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Staff rota (BOH + FOH)</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Supply order management</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Public QR digital menu</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-100"><svg class="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Events management</li>
+              <li class="flex items-start gap-2.5 text-sm text-emerald-200/60"><svg class="w-4 h-4 text-emerald-200/30 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>AI recipe generator &amp; invoice scanning</li>
+            </ul>
+          </div>
+          <a href="#cta" class="mt-auto block text-center bg-white text-emerald-700 font-bold py-3.5 rounded-2xl hover:bg-emerald-50 transition-colors shadow-lg">
+            Start free trial
+          </a>
+        </div>
+
+        <!-- Pro -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-stone-100 flex flex-col card-hover">
+          <div>
+            <h3 class="text-lg font-bold text-stone-900 mb-1">Pro</h3>
+            <p class="text-sm text-stone-400 mb-6">Full power, unlimited scale</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-stone-900">€129</span>
+              <span class="text-stone-400 text-sm ml-1">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unlimited staff accounts</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Standard</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>AI recipe generator</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Invoice AI scanning</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Multi-language (6 languages)</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Priority support</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Custom onboarding &amp; training</li>
+              <li class="flex items-start gap-2.5 text-sm text-stone-600"><svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>White-label option</li>
+            </ul>
+          </div>
+          <a href="#cta" class="mt-auto block text-center border-2 border-emerald-500 text-emerald-700 font-semibold py-3.5 rounded-2xl hover:bg-emerald-50 transition-colors">
+            Contact us
+          </a>
+        </div>
+
+      </div>
+
+      <p class="text-center text-stone-400 text-sm mt-8">All prices exclude VAT. Cancel any time. No setup fees.</p>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="cta" class="py-24 gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <svg width="100%" height="100%"><defs><pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid2)"/></svg>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-5">Ready to reduce waste and run a better kitchen?</h2>
+      <p class="text-emerald-100/80 text-lg mb-10 max-w-xl mx-auto">Join restaurants already using Kitchen Helper to cut costs, manage stock, and keep their team in sync.</p>
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="handleCTA(event)">
+        <input
+          type="email"
+          placeholder="your@restaurant.com"
+          class="flex-1 px-5 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/40 text-sm"
+          required
+        />
+        <button type="submit" class="bg-white text-emerald-700 font-bold px-7 py-4 rounded-2xl hover:bg-emerald-50 transition-colors shadow-xl whitespace-nowrap">
+          Get early access
+        </button>
+      </form>
+      <p class="text-emerald-200/50 text-xs mt-4">14-day free trial · No credit card required</p>
+      <div id="cta-success" class="hidden mt-6 text-emerald-200 font-medium text-sm">
+        ✓ Thanks! We'll be in touch shortly.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="bg-stone-900 text-stone-400 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-start justify-between gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+            </div>
+            <span class="text-white font-bold text-lg">Kitchen Helper</span>
+          </div>
+          <p class="text-sm max-w-xs leading-relaxed">Smart restaurant management software that helps you reduce waste, control costs, and run a smoother operation.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+          <div>
+            <h4 class="text-white font-semibold mb-3">Product</h4>
+            <ul class="space-y-2">
+              <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+              <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+              <li><a href="#how-it-works" class="hover:text-white transition-colors">How it works</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-3">Features</h4>
+            <ul class="space-y-2">
+              <li><a href="#features" class="hover:text-white transition-colors">Inventory</a></li>
+              <li><a href="#features" class="hover:text-white transition-colors">Waste Reduction</a></li>
+              <li><a href="#features" class="hover:text-white transition-colors">Staff Rota</a></li>
+              <li><a href="#features" class="hover:text-white transition-colors">POS & Orders</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-3">Contact</h4>
+            <ul class="space-y-2">
+              <li><a href="#cta" class="hover:text-white transition-colors">Get a demo</a></li>
+              <li><a href="mailto:hello@kitchenhelper.app" class="hover:text-white transition-colors">hello@kitchenhelper.app</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-stone-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+        <p>© 2025 Kitchen Helper. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar')
+    const navTexts = document.querySelectorAll('.nav-text-dark')
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('nav-scrolled')
+        navbar.querySelectorAll('a').forEach(a => {
+          if (!a.querySelector('svg') && !a.classList.contains('bg-white')) {
+            a.style.color = '#1c1917'
+          }
+        })
+        navbar.querySelector('span.font-bold') && (navbar.querySelector('span.font-bold').style.color = '#1c1917')
+        navbar.querySelector('span.font-bold') && (navbar.querySelector('span.font-bold').style.textShadow = 'none')
+      } else {
+        navbar.classList.remove('nav-scrolled')
+        navbar.querySelectorAll('a').forEach(a => {
+          if (!a.classList.contains('bg-white')) {
+            a.style.color = ''
+          }
+        })
+        navbar.querySelector('span.font-bold') && (navbar.querySelector('span.font-bold').style.color = 'white')
+        navbar.querySelector('span.font-bold') && (navbar.querySelector('span.font-bold').style.textShadow = '0 1px 3px rgba(0,0,0,0.3)')
+      }
+    })
+
+    // CTA form
+    function handleCTA(e) {
+      e.preventDefault()
+      document.getElementById('cta-success').classList.remove('hidden')
+      e.target.style.display = 'none'
+    }
+
+    // Smooth fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1'
+          entry.target.style.transform = 'translateY(0)'
+        }
+      })
+    }, { threshold: 0.1 })
+
+    document.querySelectorAll('.card-hover').forEach(el => {
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(20px)'
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s ease'
+      observer.observe(el)
+    })
+  </script>
+
+</body>
+</html>
