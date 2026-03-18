@@ -684,51 +684,50 @@
       <!-- Other features grid -->
       <div class="grid md:grid-cols-3 gap-6">
 
-        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
-          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-7 shadow-sm card-hover flex flex-col">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-stone-900 mb-2">Recipe Costing</h3>
-          <p class="text-stone-500 text-sm leading-relaxed mb-5">Build recipes with per-ingredient costs. See exact dish margins and know your true cost of every plate served.</p>
-          <!-- Recipe costing mockup -->
-          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
-            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
-              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span class="ml-1 text-stone-400" style="font-size:9px">Grilled Salmon — Recipe Cost</span>
+          <h3 class="text-lg font-bold text-white mb-2">Recipe Costing</h3>
+          <p class="text-emerald-100/80 text-sm leading-relaxed mb-5">Build recipes with per-ingredient costs. See exact dish margins and know your true cost of every plate served.</p>
+          <div class="mt-auto rounded-xl overflow-hidden text-xs" style="border:1px solid rgba(255,255,255,0.15)">
+            <div class="px-3 py-1.5 flex items-center gap-1.5" style="background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.1)">
+              <span class="w-2 h-2 rounded-full bg-red-400/70"></span><span class="w-2 h-2 rounded-full bg-amber-400/70"></span><span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+              <span class="ml-1 text-emerald-200/60" style="font-size:9px">Grilled Salmon — Recipe Cost</span>
             </div>
-            <div class="bg-white">
-              <div class="grid border-b border-stone-100" style="grid-template-columns:1fr auto auto">
-                <div class="px-3 py-1 text-stone-400 font-semibold uppercase" style="font-size:8px">Ingredient</div>
-                <div class="px-2 py-1 text-stone-400 font-semibold uppercase text-right" style="font-size:8px">Qty</div>
-                <div class="px-3 py-1 text-stone-400 font-semibold uppercase text-right" style="font-size:8px">Cost</div>
+            <div style="background:rgba(255,255,255,0.06)">
+              <div class="grid px-3 py-1" style="grid-template-columns:1fr auto auto;border-bottom:1px solid rgba(255,255,255,0.08)">
+                <div class="text-emerald-300/60 font-semibold uppercase" style="font-size:8px">Ingredient</div>
+                <div class="px-2 text-emerald-300/60 font-semibold uppercase text-right" style="font-size:8px">Qty</div>
+                <div class="text-emerald-300/60 font-semibold uppercase text-right" style="font-size:8px">Cost</div>
               </div>
-              <div class="divide-y divide-stone-50">
-                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto">
-                  <span class="text-stone-600" style="font-size:10px">Salmon Fillet</span>
-                  <span class="px-2 text-stone-400 text-right" style="font-size:10px">200g</span>
-                  <span class="text-stone-700 text-right" style="font-size:10px">€2.60</span>
+              <div>
+                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto;border-bottom:1px solid rgba(255,255,255,0.05)">
+                  <span class="text-white/80" style="font-size:10px">Salmon Fillet</span>
+                  <span class="px-2 text-emerald-200/60 text-right" style="font-size:10px">200g</span>
+                  <span class="text-white/80 text-right" style="font-size:10px">€2.60</span>
+                </div>
+                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto;border-bottom:1px solid rgba(255,255,255,0.05)">
+                  <span class="text-white/80" style="font-size:10px">Asparagus</span>
+                  <span class="px-2 text-emerald-200/60 text-right" style="font-size:10px">80g</span>
+                  <span class="text-white/80 text-right" style="font-size:10px">€0.48</span>
                 </div>
                 <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto">
-                  <span class="text-stone-600" style="font-size:10px">Asparagus</span>
-                  <span class="px-2 text-stone-400 text-right" style="font-size:10px">80g</span>
-                  <span class="text-stone-700 text-right" style="font-size:10px">€0.48</span>
-                </div>
-                <div class="grid px-3 py-1.5" style="grid-template-columns:1fr auto auto">
-                  <span class="text-stone-600" style="font-size:10px">Lemon Butter</span>
-                  <span class="px-2 text-stone-400 text-right" style="font-size:10px">30g</span>
-                  <span class="text-stone-700 text-right" style="font-size:10px">€0.22</span>
+                  <span class="text-white/80" style="font-size:10px">Lemon Butter</span>
+                  <span class="px-2 text-emerald-200/60 text-right" style="font-size:10px">30g</span>
+                  <span class="text-white/80 text-right" style="font-size:10px">€0.22</span>
                 </div>
               </div>
-              <div class="px-3 py-2 border-t border-stone-200 bg-stone-50 flex items-center justify-between">
+              <div class="px-3 py-2 flex items-center justify-between" style="border-top:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15)">
                 <div>
-                  <div class="text-stone-500" style="font-size:9px">Total cost: <span class="font-semibold text-stone-700">€3.30</span></div>
-                  <div class="text-stone-500" style="font-size:9px">Selling: <span class="font-semibold text-stone-700">€18.00</span></div>
+                  <div class="text-emerald-200/70" style="font-size:9px">Total cost: <span class="font-semibold text-white">€3.30</span></div>
+                  <div class="text-emerald-200/70" style="font-size:9px">Selling: <span class="font-semibold text-white">€18.00</span></div>
                 </div>
                 <div class="text-right">
-                  <div class="text-emerald-600 font-bold" style="font-size:11px">81.7%</div>
-                  <div class="text-stone-400" style="font-size:8px">margin</div>
+                  <div class="text-emerald-300 font-bold" style="font-size:11px">81.7%</div>
+                  <div class="text-emerald-300/60" style="font-size:8px">margin</div>
                 </div>
               </div>
             </div>
@@ -781,46 +780,45 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
-          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-7 shadow-sm card-hover flex flex-col">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-stone-900 mb-2">Table Orders &amp; POS</h3>
-          <p class="text-stone-500 text-sm leading-relaxed mb-5">Open tables, take orders, send to the kitchen, track status from pending to served, and close bills — all in one flow.</p>
-          <!-- Orders mockup -->
-          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
-            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
-              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span class="ml-1 text-stone-400" style="font-size:9px">Active Orders</span>
+          <h3 class="text-lg font-bold text-white mb-2">Table Orders &amp; POS</h3>
+          <p class="text-emerald-100/80 text-sm leading-relaxed mb-5">Open tables, take orders, send to the kitchen, track status from pending to served, and close bills — all in one flow.</p>
+          <div class="mt-auto rounded-xl overflow-hidden text-xs" style="border:1px solid rgba(255,255,255,0.15)">
+            <div class="px-3 py-1.5 flex items-center gap-1.5" style="background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.1)">
+              <span class="w-2 h-2 rounded-full bg-red-400/70"></span><span class="w-2 h-2 rounded-full bg-amber-400/70"></span><span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+              <span class="ml-1 text-emerald-200/60" style="font-size:9px">Active Orders</span>
             </div>
-            <div class="bg-white divide-y divide-stone-50">
-              <div class="flex items-center justify-between px-3 py-2">
+            <div style="background:rgba(255,255,255,0.06)">
+              <div class="flex items-center justify-between px-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.07)">
                 <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Table 4 · 3 guests</div>
-                  <div class="text-stone-400 mt-0.5" style="font-size:9px">Risotto · Steak · Sea Bass</div>
+                  <div class="text-white font-semibold" style="font-size:10px">Table 4 · 3 guests</div>
+                  <div class="text-emerald-200/60 mt-0.5" style="font-size:9px">Risotto · Steak · Sea Bass</div>
                 </div>
-                <span class="bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Cooking</span>
+                <span class="font-semibold px-2 py-0.5 rounded-full" style="font-size:9px;background:rgba(245,158,11,0.25);color:#fcd34d">Cooking</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.07)">
+                <div>
+                  <div class="text-white font-semibold" style="font-size:10px">Table 7 · 2 guests</div>
+                  <div class="text-emerald-200/60 mt-0.5" style="font-size:9px">Pasta · Tiramisu</div>
+                </div>
+                <span class="font-semibold px-2 py-0.5 rounded-full" style="font-size:9px;background:rgba(52,211,153,0.25);color:#6ee7b7">Ready</span>
               </div>
               <div class="flex items-center justify-between px-3 py-2">
                 <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Table 7 · 2 guests</div>
-                  <div class="text-stone-400 mt-0.5" style="font-size:9px">Pasta · Tiramisu</div>
+                  <div class="text-white font-semibold" style="font-size:10px">Table 2 · 5 guests</div>
+                  <div class="text-emerald-200/60 mt-0.5" style="font-size:9px">Starter · Mains sent</div>
                 </div>
-                <span class="bg-emerald-100 text-emerald-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Ready</span>
-              </div>
-              <div class="flex items-center justify-between px-3 py-2">
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Table 2 · 5 guests</div>
-                  <div class="text-stone-400 mt-0.5" style="font-size:9px">Starter · Mains sent</div>
-                </div>
-                <span class="bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full" style="font-size:9px">Sent</span>
+                <span class="font-semibold px-2 py-0.5 rounded-full" style="font-size:9px;background:rgba(96,165,250,0.25);color:#93c5fd">Sent</span>
               </div>
             </div>
-            <div class="bg-stone-50 px-3 py-1.5 border-t border-stone-100 flex justify-between">
-              <span class="text-stone-400" style="font-size:9px">6 open tables</span>
-              <span class="text-emerald-600 font-semibold" style="font-size:9px">€ 847 today</span>
+            <div class="px-3 py-1.5 flex justify-between" style="border-top:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15)">
+              <span class="text-emerald-200/60" style="font-size:9px">6 open tables</span>
+              <span class="text-emerald-300 font-semibold" style="font-size:9px">€ 847 today</span>
             </div>
           </div>
         </div>
@@ -877,74 +875,70 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
-          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-7 shadow-sm card-hover flex flex-col">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-stone-900 mb-2">Digital Menu</h3>
-          <p class="text-stone-500 text-sm leading-relaxed mb-5">Build your full menu with categories, descriptions, prices, allergens, and dietary tags. Publish a public QR menu for guests.</p>
-          <!-- Digital menu mockup -->
-          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
-            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
-              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span class="ml-1 text-stone-400" style="font-size:9px">Menu — La Cucina</span>
+          <h3 class="text-lg font-bold text-white mb-2">Digital Menu</h3>
+          <p class="text-emerald-100/80 text-sm leading-relaxed mb-5">Build your full menu with categories, descriptions, prices, allergens, and dietary tags. Publish a public QR menu for guests.</p>
+          <div class="mt-auto rounded-xl overflow-hidden text-xs" style="border:1px solid rgba(255,255,255,0.15)">
+            <div class="px-3 py-1.5 flex items-center gap-1.5" style="background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.1)">
+              <span class="w-2 h-2 rounded-full bg-red-400/70"></span><span class="w-2 h-2 rounded-full bg-amber-400/70"></span><span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+              <span class="ml-1 text-emerald-200/60" style="font-size:9px">Menu — La Cucina</span>
             </div>
-            <!-- Category tabs -->
-            <div class="flex gap-1 px-3 pt-2 pb-1 bg-white border-b border-stone-100">
-              <span class="bg-emerald-500 text-white px-2 py-0.5 rounded-full font-semibold" style="font-size:9px">Starters</span>
-              <span class="text-stone-400 px-2 py-0.5 rounded-full" style="font-size:9px">Mains</span>
-              <span class="text-stone-400 px-2 py-0.5 rounded-full" style="font-size:9px">Desserts</span>
-              <span class="text-stone-400 px-2 py-0.5 rounded-full" style="font-size:9px">Drinks</span>
+            <div class="flex gap-1 px-3 pt-2 pb-1" style="background:rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.08)">
+              <span class="bg-white/20 text-white px-2 py-0.5 rounded-full font-semibold" style="font-size:9px">Starters</span>
+              <span class="text-emerald-200/50 px-2 py-0.5 rounded-full" style="font-size:9px">Mains</span>
+              <span class="text-emerald-200/50 px-2 py-0.5 rounded-full" style="font-size:9px">Desserts</span>
+              <span class="text-emerald-200/50 px-2 py-0.5 rounded-full" style="font-size:9px">Drinks</span>
             </div>
-            <!-- Menu items -->
-            <div class="bg-white divide-y divide-stone-50">
-              <div class="px-3 py-2">
+            <div style="background:rgba(255,255,255,0.06)">
+              <div class="px-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.07)">
                 <div class="flex items-start justify-between">
                   <div>
-                    <div class="text-stone-800 font-semibold" style="font-size:10px">Burrata &amp; Tomato</div>
-                    <div class="text-stone-400 mt-0.5" style="font-size:9px">Fresh burrata, heritage tomatoes, basil oil</div>
+                    <div class="text-white font-semibold" style="font-size:10px">Burrata &amp; Tomato</div>
+                    <div class="text-emerald-200/60 mt-0.5" style="font-size:9px">Fresh burrata, heritage tomatoes, basil oil</div>
                     <div class="flex gap-1 mt-1">
-                      <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-medium" style="font-size:8px">V</span>
-                      <span class="bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-medium" style="font-size:8px">GF</span>
+                      <span class="px-1.5 py-0.5 rounded font-medium" style="font-size:8px;background:rgba(52,211,153,0.25);color:#6ee7b7">V</span>
+                      <span class="px-1.5 py-0.5 rounded font-medium" style="font-size:8px;background:rgba(251,191,36,0.25);color:#fcd34d">GF</span>
                     </div>
                   </div>
-                  <span class="text-stone-700 font-bold ml-2 shrink-0" style="font-size:11px">€12</span>
+                  <span class="text-white font-bold ml-2 shrink-0" style="font-size:11px">€12</span>
+                </div>
+              </div>
+              <div class="px-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.07)">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <div class="text-white font-semibold" style="font-size:10px">Tuna Tartare</div>
+                    <div class="text-emerald-200/60 mt-0.5" style="font-size:9px">Sesame, avocado, ponzu dressing</div>
+                    <div class="flex gap-1 mt-1">
+                      <span class="px-1.5 py-0.5 rounded font-medium" style="font-size:8px;background:rgba(96,165,250,0.25);color:#93c5fd">GF</span>
+                    </div>
+                  </div>
+                  <span class="text-white font-bold ml-2 shrink-0" style="font-size:11px">€16</span>
                 </div>
               </div>
               <div class="px-3 py-2">
                 <div class="flex items-start justify-between">
                   <div>
-                    <div class="text-stone-800 font-semibold" style="font-size:10px">Tuna Tartare</div>
-                    <div class="text-stone-400 mt-0.5" style="font-size:9px">Sesame, avocado, ponzu dressing</div>
+                    <div class="text-white font-semibold" style="font-size:10px">Soup of the Day</div>
+                    <div class="text-emerald-200/60 mt-0.5" style="font-size:9px">Ask your server for today's selection</div>
                     <div class="flex gap-1 mt-1">
-                      <span class="bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded font-medium" style="font-size:8px">GF</span>
+                      <span class="px-1.5 py-0.5 rounded font-medium" style="font-size:8px;background:rgba(52,211,153,0.25);color:#6ee7b7">VE</span>
                     </div>
                   </div>
-                  <span class="text-stone-700 font-bold ml-2 shrink-0" style="font-size:11px">€16</span>
-                </div>
-              </div>
-              <div class="px-3 py-2">
-                <div class="flex items-start justify-between">
-                  <div>
-                    <div class="text-stone-800 font-semibold" style="font-size:10px">Soup of the Day</div>
-                    <div class="text-stone-400 mt-0.5" style="font-size:9px">Ask your server for today's selection</div>
-                    <div class="flex gap-1 mt-1">
-                      <span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-medium" style="font-size:8px">VE</span>
-                    </div>
-                  </div>
-                  <span class="text-stone-700 font-bold ml-2 shrink-0" style="font-size:11px">€9</span>
+                  <span class="text-white font-bold ml-2 shrink-0" style="font-size:11px">€9</span>
                 </div>
               </div>
             </div>
-            <!-- QR footer -->
-            <div class="bg-stone-50 px-3 py-2 border-t border-stone-100 flex items-center justify-between">
-              <span class="text-stone-400" style="font-size:9px">📱 Scan QR to view full menu</span>
-              <div class="w-8 h-8 bg-stone-800 rounded flex items-center justify-center">
-                <svg viewBox="0 0 10 10" style="width:20px;height:20px" fill="white">
+            <div class="px-3 py-2 flex items-center justify-between" style="border-top:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15)">
+              <span class="text-emerald-200/60" style="font-size:9px">📱 Scan QR to view full menu</span>
+              <div class="w-8 h-8 rounded flex items-center justify-center" style="background:rgba(255,255,255,0.15)">
+                <svg viewBox="0 0 10 10" style="width:20px;height:20px" fill="white" opacity="0.8">
                   <rect x="1" y="1" width="3" height="3"/><rect x="6" y="1" width="3" height="3"/><rect x="1" y="6" width="3" height="3"/>
-                  <rect x="2" y="2" width="1" height="1" fill="#1c1917"/><rect x="7" y="2" width="1" height="1" fill="#1c1917"/><rect x="2" y="7" width="1" height="1" fill="#1c1917"/>
+                  <rect x="2" y="2" width="1" height="1" fill="#047857"/><rect x="7" y="2" width="1" height="1" fill="#047857"/><rect x="2" y="7" width="1" height="1" fill="#047857"/>
                   <rect x="6" y="5" width="1" height="1"/><rect x="7" y="6" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/>
                   <rect x="5" y="1" width="1" height="1"/><rect x="1" y="5" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/>
                 </svg>
@@ -1016,60 +1010,45 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover flex flex-col">
-          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-7 shadow-sm card-hover flex flex-col">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-stone-900 mb-2">AI Recipe Generator</h3>
-          <p class="text-stone-500 text-sm leading-relaxed mb-5">Generate new recipes based on your profile, cuisine style, and available ingredients. Save and build your recipe library over time.</p>
-          <!-- AI recipe mockup -->
-          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
-            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
-              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span class="ml-1 text-stone-400" style="font-size:9px">AI Recipe Generator</span>
+          <h3 class="text-lg font-bold text-white mb-2">AI Recipe Generator</h3>
+          <p class="text-emerald-100/80 text-sm leading-relaxed mb-5">Generate new recipes based on your profile, cuisine style, and available ingredients. Save and build your recipe library over time.</p>
+          <div class="mt-auto rounded-xl overflow-hidden text-xs" style="border:1px solid rgba(255,255,255,0.15)">
+            <div class="px-3 py-1.5 flex items-center gap-1.5" style="background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.1)">
+              <span class="w-2 h-2 rounded-full bg-red-400/70"></span><span class="w-2 h-2 rounded-full bg-amber-400/70"></span><span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+              <span class="ml-1 text-emerald-200/60" style="font-size:9px">AI Recipe Generator</span>
             </div>
-            <!-- Prompt -->
-            <div class="bg-white px-3 py-2 border-b border-stone-100">
-              <div class="text-stone-400 mb-1" style="font-size:9px">Generate a recipe using:</div>
+            <div class="px-3 py-2" style="background:rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.08)">
+              <div class="text-emerald-200/60 mb-1" style="font-size:9px">Generate a recipe using:</div>
               <div class="flex flex-wrap gap-1">
-                <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium" style="font-size:9px">Salmon</span>
-                <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium" style="font-size:9px">Asparagus</span>
-                <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium" style="font-size:9px">Lemon</span>
-                <span class="bg-stone-100 text-stone-500 px-2 py-0.5 rounded-full" style="font-size:9px">Italian style</span>
+                <span class="px-2 py-0.5 rounded-full font-medium" style="font-size:9px;background:rgba(52,211,153,0.25);color:#6ee7b7">Salmon</span>
+                <span class="px-2 py-0.5 rounded-full font-medium" style="font-size:9px;background:rgba(52,211,153,0.25);color:#6ee7b7">Asparagus</span>
+                <span class="px-2 py-0.5 rounded-full font-medium" style="font-size:9px;background:rgba(52,211,153,0.25);color:#6ee7b7">Lemon</span>
+                <span class="px-2 py-0.5 rounded-full" style="font-size:9px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.5)">Italian style</span>
               </div>
             </div>
-            <!-- Generated recipe -->
-            <div class="bg-gradient-to-b from-stone-50 to-white px-3 py-2">
+            <div class="px-3 py-2" style="background:rgba(255,255,255,0.06)">
               <div class="flex items-center gap-1.5 mb-2">
-                <div class="w-4 h-4 bg-emerald-500 rounded flex items-center justify-center">
+                <div class="w-4 h-4 rounded flex items-center justify-center" style="background:rgba(255,255,255,0.2)">
                   <svg style="width:10px;height:10px" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
-                <span class="text-emerald-700 font-bold" style="font-size:10px">Salmone al Limone</span>
+                <span class="text-white font-bold" style="font-size:10px">Salmone al Limone</span>
               </div>
               <div class="space-y-1">
-                <div class="flex items-start gap-1.5">
-                  <span class="text-emerald-500 mt-0.5" style="font-size:9px">▸</span>
-                  <span class="text-stone-500" style="font-size:9px">Sear salmon fillet skin-side down in olive oil, 4 min</span>
-                </div>
-                <div class="flex items-start gap-1.5">
-                  <span class="text-emerald-500 mt-0.5" style="font-size:9px">▸</span>
-                  <span class="text-stone-500" style="font-size:9px">Blanch asparagus 2 min, finish with butter &amp; zest</span>
-                </div>
-                <div class="flex items-start gap-1.5">
-                  <span class="text-emerald-500 mt-0.5" style="font-size:9px">▸</span>
-                  <span class="text-stone-500" style="font-size:9px">Deglaze with white wine, lemon juice, capers</span>
-                </div>
-                <div class="flex items-start gap-1.5">
-                  <span class="text-emerald-500 mt-0.5" style="font-size:9px">▸</span>
-                  <span class="text-stone-500" style="font-size:9px">Plate with gremolata, serve immediately</span>
-                </div>
+                <div class="flex items-start gap-1.5"><span class="text-emerald-300 mt-0.5" style="font-size:9px">▸</span><span class="text-emerald-100/70" style="font-size:9px">Sear salmon fillet skin-side down in olive oil, 4 min</span></div>
+                <div class="flex items-start gap-1.5"><span class="text-emerald-300 mt-0.5" style="font-size:9px">▸</span><span class="text-emerald-100/70" style="font-size:9px">Blanch asparagus 2 min, finish with butter &amp; zest</span></div>
+                <div class="flex items-start gap-1.5"><span class="text-emerald-300 mt-0.5" style="font-size:9px">▸</span><span class="text-emerald-100/70" style="font-size:9px">Deglaze with white wine, lemon juice, capers</span></div>
+                <div class="flex items-start gap-1.5"><span class="text-emerald-300 mt-0.5" style="font-size:9px">▸</span><span class="text-emerald-100/70" style="font-size:9px">Plate with gremolata, serve immediately</span></div>
               </div>
             </div>
-            <div class="bg-stone-50 px-3 py-1.5 border-t border-stone-100 flex justify-between items-center">
-              <span class="text-stone-400" style="font-size:9px">Cost: €4.20 · Serves 1</span>
-              <span class="text-emerald-600 font-semibold" style="font-size:9px">💾 Save recipe</span>
+            <div class="px-3 py-1.5 flex justify-between items-center" style="border-top:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15)">
+              <span class="text-emerald-200/60" style="font-size:9px">Cost: €4.20 · Serves 1</span>
+              <span class="text-emerald-300 font-semibold" style="font-size:9px">💾 Save recipe</span>
             </div>
           </div>
         </div>
@@ -1144,67 +1123,47 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-7 shadow-sm border border-stone-100 card-hover">
-          <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-7 shadow-sm card-hover flex flex-col">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-stone-900 mb-2">Multi-language</h3>
-          <p class="text-stone-500 text-sm leading-relaxed mb-5">Full UI translation in English, Romanian, Spanish, Italian, French, and German. Your whole team works in their own language.</p>
-          <!-- Multi-language mockup -->
-          <div class="mt-auto rounded-xl overflow-hidden border border-stone-200 shadow-sm text-xs">
-            <div class="bg-stone-100 px-3 py-1.5 flex items-center gap-1.5 border-b border-stone-200">
-              <span class="w-2 h-2 rounded-full bg-red-400"></span><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span class="ml-1 text-stone-400" style="font-size:9px">Language Settings</span>
+          <h3 class="text-lg font-bold text-white mb-2">Multi-language</h3>
+          <p class="text-emerald-100/80 text-sm leading-relaxed mb-5">Full UI translation in English, Romanian, Spanish, Italian, French, and German. Your whole team works in their own language.</p>
+          <div class="mt-auto rounded-xl overflow-hidden text-xs" style="border:1px solid rgba(255,255,255,0.15)">
+            <div class="px-3 py-1.5 flex items-center gap-1.5" style="background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.1)">
+              <span class="w-2 h-2 rounded-full bg-red-400/70"></span><span class="w-2 h-2 rounded-full bg-amber-400/70"></span><span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+              <span class="ml-1 text-emerald-200/60" style="font-size:9px">Language Settings</span>
             </div>
-            <!-- Language grid -->
-            <div class="bg-white p-3 grid grid-cols-2 gap-2">
-              <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-lg px-2 py-1.5">
+            <div class="p-3 grid grid-cols-2 gap-2" style="background:rgba(255,255,255,0.06)">
+              <div class="flex items-center gap-2 rounded-lg px-2 py-1.5" style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.25)">
                 <span style="font-size:14px">🇬🇧</span>
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">English</div>
-                  <div class="text-stone-400" style="font-size:8px">Inventory · Orders</div>
-                </div>
+                <div><div class="text-white font-semibold" style="font-size:10px">English</div><div class="text-emerald-200/60" style="font-size:8px">Inventory · Orders</div></div>
               </div>
-              <div class="flex items-center gap-2 bg-stone-50 border border-stone-100 rounded-lg px-2 py-1.5">
+              <div class="flex items-center gap-2 rounded-lg px-2 py-1.5" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
                 <span style="font-size:14px">🇷🇴</span>
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Română</div>
-                  <div class="text-stone-400" style="font-size:8px">Stoc · Comenzi</div>
-                </div>
+                <div><div class="text-white/80 font-semibold" style="font-size:10px">Română</div><div class="text-emerald-200/50" style="font-size:8px">Stoc · Comenzi</div></div>
               </div>
-              <div class="flex items-center gap-2 bg-stone-50 border border-stone-100 rounded-lg px-2 py-1.5">
+              <div class="flex items-center gap-2 rounded-lg px-2 py-1.5" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
                 <span style="font-size:14px">🇪🇸</span>
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Español</div>
-                  <div class="text-stone-400" style="font-size:8px">Inventario · Pedidos</div>
-                </div>
+                <div><div class="text-white/80 font-semibold" style="font-size:10px">Español</div><div class="text-emerald-200/50" style="font-size:8px">Inventario · Pedidos</div></div>
               </div>
-              <div class="flex items-center gap-2 bg-stone-50 border border-stone-100 rounded-lg px-2 py-1.5">
+              <div class="flex items-center gap-2 rounded-lg px-2 py-1.5" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
                 <span style="font-size:14px">🇮🇹</span>
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Italiano</div>
-                  <div class="text-stone-400" style="font-size:8px">Inventario · Ordini</div>
-                </div>
+                <div><div class="text-white/80 font-semibold" style="font-size:10px">Italiano</div><div class="text-emerald-200/50" style="font-size:8px">Inventario · Ordini</div></div>
               </div>
-              <div class="flex items-center gap-2 bg-stone-50 border border-stone-100 rounded-lg px-2 py-1.5">
+              <div class="flex items-center gap-2 rounded-lg px-2 py-1.5" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
                 <span style="font-size:14px">🇫🇷</span>
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Français</div>
-                  <div class="text-stone-400" style="font-size:8px">Inventaire · Commandes</div>
-                </div>
+                <div><div class="text-white/80 font-semibold" style="font-size:10px">Français</div><div class="text-emerald-200/50" style="font-size:8px">Inventaire · Commandes</div></div>
               </div>
-              <div class="flex items-center gap-2 bg-stone-50 border border-stone-100 rounded-lg px-2 py-1.5">
+              <div class="flex items-center gap-2 rounded-lg px-2 py-1.5" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
                 <span style="font-size:14px">🇩🇪</span>
-                <div>
-                  <div class="text-stone-700 font-semibold" style="font-size:10px">Deutsch</div>
-                  <div class="text-stone-400" style="font-size:8px">Inventar · Bestellungen</div>
-                </div>
+                <div><div class="text-white/80 font-semibold" style="font-size:10px">Deutsch</div><div class="text-emerald-200/50" style="font-size:8px">Inventar · Bestellungen</div></div>
               </div>
             </div>
-            <div class="bg-stone-50 px-3 py-1.5 border-t border-stone-100 text-center">
-              <span class="text-stone-400" style="font-size:9px">Every team member chooses their own language</span>
+            <div class="px-3 py-1.5 text-center" style="border-top:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15)">
+              <span class="text-emerald-200/60" style="font-size:9px">Every team member chooses their own language</span>
             </div>
           </div>
         </div>
